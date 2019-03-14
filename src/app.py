@@ -1,4 +1,4 @@
 import sys
 
-def helloWorld():
-    print("Hello World!")
+def hello_world():
+    return "Hello, World!"
