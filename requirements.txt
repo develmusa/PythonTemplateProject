@@ -1,2 +1,7 @@
 pytest
 PyQt5
+
+#Testing
+pytest-cov
+pytest
+codecov
