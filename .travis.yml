@@ -5,6 +5,8 @@ before_install:
   - python --version
   - uname -a
   - lsb_release -a 
+  - pip install -U pip
+  - pip install tox
   - pip install -U pytest
 # command to install dependencies
 install:
