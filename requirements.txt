@@ -3,5 +3,6 @@ PyQt5
 
 #Testing
 pytest-cov
+pytest-qt
 pytest
 codecov
