@@ -11,13 +11,13 @@ before_install:
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+services:
+  - xvfb  
 # command to run tests
 script:
-  - xvfb-run --server-args="-screen 0 1024x768x24" py.test --cov-report term --cov=src/ -v
+  - xvfb-run py.test --cov-report term --cov=src/ -v
 env:
   - CODECOV_TOKEN="0d56028c-9cfd-4536-964a-5151c4115d3d"
 after_success:
   - codecov
 
-services:
-  - xvfb
