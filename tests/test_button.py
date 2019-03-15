@@ -1,4 +1,6 @@
 import unittest
+import pytest
+import pytest_xvfb
 
 from PyQt5.QtCore import *
 

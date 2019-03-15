@@ -1,19 +1,25 @@
 dist: xenial
 language: python
 python: 3.7
+sudo: required
 before_install:
   - python --version
   - uname -a
   - lsb_release -a 
   - pip install -U pip
-  - pip install tox
   - pip install -U pytest
+  - sudo apt-get update
+  - sudo apt-get install -y xvfb herbstluftwm
 # command to install dependencies
 install:
   - pip install -r requirements.txt
-services:
-  - xvfb  
+  - "export DISPLAY=:99.0"
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -screen 0 1920x1200x24 -ac +extension GLX +render -noreset"
+  - sleep 3
 # command to run tests
+before_script:
+  - "herbstluftwm &"
+  - sleep 1
 script:
   - py.test --cov-report term --cov=src/ -v
 env:
