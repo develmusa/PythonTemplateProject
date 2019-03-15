@@ -15,7 +15,7 @@ services:
   - xvfb  
 # command to run tests
 script:
-  - xvfb-run py.test --cov-report term --cov=src/ -v
+  - py.test --cov-report term --cov=src/ -v
 env:
   - CODECOV_TOKEN="0d56028c-9cfd-4536-964a-5151c4115d3d"
 after_success:
